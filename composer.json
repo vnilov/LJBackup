@@ -1,0 +1,16 @@
+{
+  "name": "vnilov/lj_data_downloader",
+  "description": "",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Vadim Nilov",
+      "email": "mailme@lookover.me"
+    }
+  ],
+  "require": {
+    "aws/aws-sdk-php": "3.38.4",
+    "ralouphie/mimey": "1.0.8"
+  }
+}
