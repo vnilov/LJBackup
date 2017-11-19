@@ -15,13 +15,24 @@ class Runner
     private $_s3;
     private $_last_id;
     private $_last_page;
+    private $_default_config = [
+        "last_id" => 0,
+        "last_page" => 1,
+        "on_page" => 20,
+        "timeout" => 60
+    ];
 
     /**
      * Runner constructor.
      */
     private function __construct()
     {
-        $this->_config = json_decode(file_get_contents("config.json"));
+        if (file_exists("config.json")) {
+            $this->_config = json_decode(file_get_contents("config.json"));
+        } else {
+            $this->_config = $this->_default_config;
+            file_put_contents("config.json", json_encode($this->_default_config));
+        }
         $this->_mime = new Mimey;
         $this->_s3 = new S3Wrapper;
         $this->_last_page = $this->_config->last_page;
