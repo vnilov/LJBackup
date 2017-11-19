@@ -1,4 +1,6 @@
 composer.lock
 composer.phar
 vendor/
-.idea
+src/config.json
+src/runner.proc
+.idea/
